@@ -15,6 +15,13 @@ namespace _1260_001_BartonNathaniel_Project5
         //private Weapon Weapon;
         private int[] position = new int[2];
 
+        public Room()
+        {
+            Exits = new bool[] { true, true, true, true };
+            HasMonster = false;
+            HasWeapon = false;
+            position = new int[] { 0,0 };
+        }
         public string DescString()
         {
             StringBuilder bldr = new StringBuilder();
@@ -23,12 +30,20 @@ namespace _1260_001_BartonNathaniel_Project5
                 "unwelcoming as the last.\n");
             if (HasWeapon)
             {
-                bldr.Append("There is a [weapon] propped against one wall."); //link to generation logic to determine weapon type
+                bldr.Append("There is a [weapon] propped against one wall.\n"); //link to generation logic to determine weapon type
             }
             if(HasMonster)
             {
-
+                //if(Monster.isDead())
+                //{
+                //  bldr.Append("A monster's corpse lays sprawled on the ground, felled by your hand.\n");
+                //}
+                //else
+                //{
+                    bldr.Append("There is a monster here!\n"); 
+                //}
             }
+            return bldr.ToString();
         }
     }
 }
