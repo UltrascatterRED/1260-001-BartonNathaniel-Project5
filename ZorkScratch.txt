@@ -1,0 +1,15 @@
++---+---+---+
+> P   M     |
++   +   +   +
+| W         |
++   +   +   +
+|           >
++---+---+---+
+
+P = Player
+M = Monster
+W = Weapon (must enter room to reveal weapon type)
+
+-Player can view full room layout via map.
+-Player can only see monsters/items in vertically/horizontally
+ adjacent rooms, or in previously visited rooms.
