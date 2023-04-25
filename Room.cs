@@ -25,6 +25,7 @@ namespace _1260_001_BartonNathaniel_Project5
             HasMonster = false;
             HasWeapon = false;
             Position = new int[] { 0,0 };
+            Visited = false;
         }
         public Room(bool[] exits, bool hasMonster, bool hasWeapon, int[] position)
         {
@@ -32,6 +33,7 @@ namespace _1260_001_BartonNathaniel_Project5
             HasMonster = hasMonster;
             HasWeapon = hasWeapon;
             Position = position;
+            Visited = false;
         }
 
         public string DescString()
@@ -63,21 +65,43 @@ namespace _1260_001_BartonNathaniel_Project5
             }
             return bldr.ToString();
         }
-        public string MapString()
+        public void DisplayRoom()
         {
+            try
+            {
+                Console.SetCursorPosition((Position[0] * 6), Position[1] * 3);
+            }
+            catch
+            {
+                Console.Write("+---+ \n" +
+                              "|x_x| \n" +
+                              "+---+ ");
+            }
             StringBuilder bldr = new StringBuilder();
-            //(int Left, int Top) startingCursorPos = Console.GetCursorPosition();
 
             //row 1
             if (Exits[1]) { bldr.Append("+   + \n"); }
             else { bldr.Append("+---+ \n"); }
+
             //row 2
-            if (Exits[0]) { bldr.Append("  "); }
-            else { bldr.Append("| "); }
-            if (HasMonster) { bldr.Append("M"); }
+            StringBuilder midLineBldr = new StringBuilder(5);           
+            if (Exits[0]) { midLineBldr.Append(" "); }
+            else { midLineBldr.Append("|"); }
+            if (HasMonster) { midLineBldr.Append("M"); }
+            if (HasWeapon) { midLineBldr.Append("W"); }
+            for(int i = 0; i < midLineBldr.Capacity-(midLineBldr.Length-1); i++)
+            {
+                midLineBldr.Append(" ");
+            }
+            if (Exits[2]) { midLineBldr.Append("  \n"); }
+            else { midLineBldr.Append("| \n"); }
 
+            bldr.Append(midLineBldr.ToString());
             //row 3
+            if (Exits[3]) { bldr.Append("+   + "); }
+            else { bldr.Append("+---+ "); }
 
+            return bldr.ToString();
         }
     }
 }

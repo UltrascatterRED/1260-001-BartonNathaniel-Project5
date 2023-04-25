@@ -10,9 +10,13 @@ namespace _1260_001_BartonNathaniel_Project5
     {
         static void Main(string[] args)
         {
-            //Room test = new Room(new bool[] {true,false,false,true}, true, false, new int[] {0,0});
-            //Console.Write(test.DescString());
+            Room test = new Room(new bool[] {false,false,false,false}, true, false, new int[] {1,0});
+            //Room test2 = new Room();
+            Console.Write(test.MapString());
 
+            //Dungeon dungeon = new Dungeon();
+            //Console.WriteLine("Constructor success!");
+            //dungeon.DisplayMap();
         }
     }
 }
