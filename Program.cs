@@ -10,13 +10,18 @@ namespace _1260_001_BartonNathaniel_Project5
     {
         static void Main(string[] args)
         {
-            Room test = new Room(new bool[] {false,false,false,false}, true, false, new int[] {1,0});
+            //bool[] testExits = new bool[] { true, true, true, false };
+            //int[] testPos = new int[] { 0, 0 };
+            //Room test = new Room(testExits, true, false, testPos);
             //Room test2 = new Room();
-            Console.Write(test.MapString());
+            //test.DisplayRoom();
 
-            //Dungeon dungeon = new Dungeon();
+            Dungeon dungeon = new Dungeon(4, 10);
             //Console.WriteLine("Constructor success!");
-            //dungeon.DisplayMap();
+            dungeon.DisplayMap();
+
+            //prevents output console from instantly closing
+            Console.ReadLine();
         }
     }
 }

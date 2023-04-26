@@ -69,22 +69,21 @@ namespace _1260_001_BartonNathaniel_Project5
         {
             try
             {
-                Console.SetCursorPosition((Position[0] * 6), Position[1] * 3);
+                Console.SetCursorPosition(Position[0] * 6, Position[1] * 3);
             }
             catch
             {
-                Console.Write("+---+ \n" +
-                              "|x_x| \n" +
-                              "+---+ ");
+                Console.Write("|x_x| ");
             }
-            StringBuilder bldr = new StringBuilder();
+            //StringBuilder bldr = new StringBuilder();
 
             //row 1
-            if (Exits[1]) { bldr.Append("+   + \n"); }
-            else { bldr.Append("+---+ \n"); }
-
+            if (Exits[1]) { Console.Write("+   + "); }
+            else { Console.Write("+---+ "); }
             //row 2
-            StringBuilder midLineBldr = new StringBuilder(5);           
+            Console.SetCursorPosition(Position[0] * 6, (Position[1] * 3) + 1);
+            StringBuilder midLineBldr = new StringBuilder(5);   
+            
             if (Exits[0]) { midLineBldr.Append(" "); }
             else { midLineBldr.Append("|"); }
             if (HasMonster) { midLineBldr.Append("M"); }
@@ -93,15 +92,15 @@ namespace _1260_001_BartonNathaniel_Project5
             {
                 midLineBldr.Append(" ");
             }
-            if (Exits[2]) { midLineBldr.Append("  \n"); }
-            else { midLineBldr.Append("| \n"); }
+            if (Exits[2]) { midLineBldr.Append("  "); }
+            else { midLineBldr.Append("| "); }
 
-            bldr.Append(midLineBldr.ToString());
+            Console.Write(midLineBldr.ToString());
             //row 3
-            if (Exits[3]) { bldr.Append("+   + "); }
-            else { bldr.Append("+---+ "); }
+            Console.SetCursorPosition(Position[0] * 6, (Position[1] * 3) + 2);
+            if (Exits[3]) { Console.Write("+   + "); }
+            else { Console.Write("+---+ "); }
 
-            return bldr.ToString();
         }
     }
 }
