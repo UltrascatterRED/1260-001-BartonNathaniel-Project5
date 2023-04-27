@@ -43,3 +43,6 @@ When rooms are referenced by a single-value index i, * i BEGINS AT 1 *, rather t
 Formulas for calculating room position [x,y] in a grid of size [X,Y] from a single index i:
     x = (i % X) - 1
     y = (i / Y)
+
+Formulas for calculating a room's index given its position [x,y] and the width of its parent dungeon X
+    i = (y * X) + x

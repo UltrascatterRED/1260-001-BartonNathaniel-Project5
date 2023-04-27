@@ -48,5 +48,9 @@ namespace _1260_001_BartonNathaniel_Project5
         {
 
         }
+        static void DisplayCombatMenu()
+        {
+
+        }
     }
 }
