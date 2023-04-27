@@ -16,13 +16,31 @@ namespace _1260_001_BartonNathaniel_Project5
         private bool HasWeapon;
         //private Weapon Weapon;
         private int[] Position = new int[2];
+        private bool PlayerPresent = false;
         private bool Visited = false;
 
+        public bool HasWestExit() { return Exits[0]; }
+        public bool HasNorthExit() { return Exits[1]; }
+        public bool HasEastExit() { return Exits[2]; }
+        public bool HasSouthExit() { return Exits[3]; }
         public bool GetHasMonster() { return HasMonster; }
         public bool GetHasWeapon() { return HasWeapon; }
+        public int GetPosX() { return Position[0]; }
+        public int GetPosY() { return Position[1]; }
+        public bool GetPlayerPresent() { return PlayerPresent; }
+        public bool GetVisited() { return Visited; }
 
         public void SetHasMonster(bool value) { HasMonster = value; }
         public void SetHasWeapon(bool value) { HasWeapon = value; }
+        public void Visit()
+        {
+            PlayerPresent = true;
+            Visited = true;
+        }
+        public void Leave()
+        {
+            PlayerPresent = false;
+        }
 
         public Room()
         {
@@ -70,6 +88,7 @@ namespace _1260_001_BartonNathaniel_Project5
             }
             return bldr.ToString();
         }
+
         public void DisplayRoom()
         {
             try
@@ -87,13 +106,14 @@ namespace _1260_001_BartonNathaniel_Project5
             else { Console.Write("+---+ "); }
             //row 2
             Console.SetCursorPosition(Position[0] * 6, (Position[1] * 3) + 1);
-            StringBuilder midLineBldr = new StringBuilder(5);   
+            StringBuilder midLineBldr = new StringBuilder(6);   
             
             if (Exits[0]) { midLineBldr.Append(" "); }
             else { midLineBldr.Append("|"); }
+            if(PlayerPresent) { midLineBldr.Append("P"); }
             if (HasMonster) { midLineBldr.Append("M"); }
-            if (HasWeapon) { midLineBldr.Append("W"); }
-            for(int i = 0; i < midLineBldr.Capacity-(midLineBldr.Length-1); i++)
+            if (HasWeapon) { midLineBldr.Append("T"); }
+            for(int i = 0; i < midLineBldr.Capacity-midLineBldr.Length; i++)
             {
                 midLineBldr.Append(" ");
             }

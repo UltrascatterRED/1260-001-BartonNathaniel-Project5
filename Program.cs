@@ -18,10 +18,35 @@ namespace _1260_001_BartonNathaniel_Project5
 
             Dungeon dungeon = new Dungeon(5, 6);
             //Console.WriteLine("Constructor success!");
-            dungeon.DisplayMap();
+            dungeon.DisplayFullMap();
+            //testing all four movement directions
+            //East
+            Console.ReadLine();
+            dungeon.MovePlayer(2);
+            dungeon.DisplayFullMap();
+            //South
+            Console.ReadLine();
+            dungeon.MovePlayer(3);
+            dungeon.DisplayFullMap();
+            //West
+            Console.ReadLine();
+            dungeon.MovePlayer(0);
+            dungeon.DisplayFullMap();
+            //North
+            Console.ReadLine();
+            dungeon.MovePlayer(1);
+            dungeon.DisplayFullMap();
 
             //prevents output console from instantly closing
             Console.ReadLine();
+        }
+        static void DisplayMainMenu()
+        {
+
+        }
+        static void DisplayPauseMenu()
+        {
+
         }
     }
 }
