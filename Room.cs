@@ -18,7 +18,12 @@ namespace _1260_001_BartonNathaniel_Project5
         private int[] Position = new int[2];
         private bool Visited = false;
 
-        //implement random generation of weapons, monsters
+        public bool GetHasMonster() { return HasMonster; }
+        public bool GetHasWeapon() { return HasWeapon; }
+
+        public void SetHasMonster(bool value) { HasMonster = value; }
+        public void SetHasWeapon(bool value) { HasWeapon = value; }
+
         public Room()
         {
             Exits = new bool[] { true, true, true, true };

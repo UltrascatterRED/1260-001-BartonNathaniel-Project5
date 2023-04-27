@@ -16,7 +16,7 @@ namespace _1260_001_BartonNathaniel_Project5
             //Room test2 = new Room();
             //test.DisplayRoom();
 
-            Dungeon dungeon = new Dungeon(4, 10);
+            Dungeon dungeon = new Dungeon(5, 6);
             //Console.WriteLine("Constructor success!");
             dungeon.DisplayMap();
 
