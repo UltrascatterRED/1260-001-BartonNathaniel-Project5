@@ -25,10 +25,21 @@ namespace _1260_001_BartonNathaniel_Project5
             }
             throw new Exception("Player must be present in exactly one room");
         }
+        public int GetPlayerMapHeight()
+        {
+            int visitedRooms = 0;
+            foreach(Room room in Rooms)
+            {
+                if (room.GetVisited)
+                {
+                    visitedRooms++;
+                }
+            }
+            return (visitedRooms / Size[0] + 1) * 3;
+        }
         public Dungeon()
         {
-            //implement random generation of exit room
-            //rooms will always generate in same pattern (except for exit room, random vertical location)
+            //rooms will always generate in same pattern
             Size = new int[] {3, 3};
             Rooms = new Room[Size[0] * Size[1]];
             PopulateRoomList();
@@ -227,5 +238,6 @@ namespace _1260_001_BartonNathaniel_Project5
                 room.DisplayRoom();
             }
         }
+        
     }
 }
