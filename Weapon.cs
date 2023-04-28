@@ -27,8 +27,8 @@ namespace _1260_001_BartonNathaniel_Project5
 
         public Weapon() 
         {
-            SetName("Default");
-            SetDescription("A generic default for weapon objects.");
+            SetName("Fists");
+            SetDescription("You are unarmed. Hopefully you've brushed up on hand-to-hand combat.");
             SetDamage(0);
             SetAccuracyMod(0);
         }
@@ -46,6 +46,13 @@ namespace _1260_001_BartonNathaniel_Project5
             Description = other.Description;
             Damage = other.Damage;
             AccuracyMod = other.AccuracyMod;
+        }
+
+        public override string ToString()
+        {
+            return GetName() + "\n" + 
+                "<------------------------>\n" +
+                GetDescription() + "\n";
         }
     }
 }

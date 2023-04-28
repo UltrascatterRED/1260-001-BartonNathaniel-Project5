@@ -12,9 +12,9 @@ namespace _1260_001_BartonNathaniel_Project5
         //exit order in array: W, N, E, S
         private bool[] Exits = new bool[4];
         private bool HasMonster;
-        //private Monster Monster;
+        private Monster Monster;
         private bool HasWeapon;
-        //private Weapon Weapon;
+        private Weapon Weapon;
         private int[] Position = new int[2];
         private bool PlayerPresent = false;
         private bool Visited = false;

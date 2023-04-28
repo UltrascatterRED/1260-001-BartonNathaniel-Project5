@@ -8,11 +8,11 @@ namespace _1260_001_BartonNathaniel_Project5
 {
     internal class Entity
     {
-        private int Health;
-        private int Strength;
-        private double CritChance;
-        private double Agility;
-        private double Accuracy;
+        protected int Health;
+        protected int Strength;
+        protected double CritChance;
+        protected double Agility;
+        protected double Accuracy;
 
         //getters
         public int GetHealth() { return Health; }
