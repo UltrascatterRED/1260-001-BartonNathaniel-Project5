@@ -83,6 +83,7 @@ namespace _1260_001_BartonNathaniel_Project5
         //General in-game menu (non-combat actions)
         static void DisplayGameMenu()
         {
+            int playerChoice = 0;
             bool valid = false;
 
             //Console.SetCursorPosition(0, <vert pos depends on dungeon size>)
@@ -100,7 +101,7 @@ namespace _1260_001_BartonNathaniel_Project5
                 Console.Write(" Your choice:\t");
                 try
                 {
-                    int playerChoice = int.Parse(Console.ReadLine());
+                    playerChoice = int.Parse(Console.ReadLine());
                     if (playerChoice >= 1 && playerChoice <= 5)
                     {
                         valid = true;
@@ -117,6 +118,7 @@ namespace _1260_001_BartonNathaniel_Project5
         //Returns bool to indicate whether or not player wants to continue.
         static bool DisplayPauseMenu()
         {
+            int playerChoice = 0;
             bool valid = false;
 
             //Console.SetCursorPosition(0, <vert pos depends on dungeon size>)
@@ -132,7 +134,7 @@ namespace _1260_001_BartonNathaniel_Project5
                 Console.Write(" Your choice:\t");
                 try
                 {
-                    int playerChoice = int.Parse(Console.ReadLine());
+                    playerChoice = int.Parse(Console.ReadLine());
                     if (playerChoice >= 1 && playerChoice <= 3)
                     {
                         valid = true;
@@ -152,6 +154,7 @@ namespace _1260_001_BartonNathaniel_Project5
         static void DisplayCombatMenu()
         {
             bool valid = false;
+            int playerChoice = 0;
 
             //Console.SetCursorPosition(0, <vert pos depends on dungeon size>)
             Console.WriteLine(">>>-----------[x_x]------------|>");
@@ -167,8 +170,74 @@ namespace _1260_001_BartonNathaniel_Project5
                 Console.Write(" Your choice:\t");
                 try
                 {
-                    int playerChoice = int.Parse(Console.ReadLine());
+                    playerChoice = int.Parse(Console.ReadLine());
                     if (playerChoice >= 1 && playerChoice <= 4)
+                    {
+                        valid = true;
+                    }
+                }
+                catch
+                {
+                    Console.SetCursorPosition(0, 12);
+                    Console.WriteLine("[x] Enter a listed number");
+                }
+            } while (!valid);
+
+            switch (playerChoice)
+            {
+
+            }
+            return true;
+        }
+        public static bool DisplayVictoryMenu()
+        {
+            bool valid = false;
+
+            //Console.SetCursorPosition(0, <vert pos depends on dungeon size>)
+            Console.WriteLine("<-[*]-[*]-[*]-[^-^]-[*]-[*]-[*]->");
+            Console.WriteLine("  1>\tReturn to Main Menu");
+            Console.WriteLine("  2>\tExit Game");
+            Console.WriteLine();
+            do
+            {
+                //Console.SetCursorPosition(0, <vert pos depends on dungeon size>);
+                ClearCurrentConsoleLine();
+                Console.Write(" Your choice:\t");
+                try
+                {
+                    int playerChoice = int.Parse(Console.ReadLine());
+                    if (playerChoice >= 1 && playerChoice <= 2)
+                    {
+                        valid = true;
+                    }
+                }
+                catch
+                {
+                    Console.SetCursorPosition(0, 12);
+                    Console.WriteLine("[x] Enter a listed number");
+                }
+            } while (!valid);
+
+        }
+
+        public static bool ShowDefeatMenu()
+        {
+            bool valid = false;
+
+            //Console.SetCursorPosition(0, <vert pos depends on dungeon size>)
+            Console.WriteLine("<-[x]-[x]-[x]-[=_=]-[x]-[x]-[x]->");
+            Console.WriteLine("  1>\tReturn to Main Menu");
+            Console.WriteLine("  2>\tExit Game");
+            Console.WriteLine();
+            do
+            {
+                //Console.SetCursorPosition(0, <vert pos depends on dungeon size>);
+                ClearCurrentConsoleLine();
+                Console.Write(" Your choice:\t");
+                try
+                {
+                    int playerChoice = int.Parse(Console.ReadLine());
+                    if (playerChoice >= 1 && playerChoice <= 2)
                     {
                         valid = true;
                     }
