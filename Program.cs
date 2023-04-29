@@ -8,18 +8,29 @@ namespace _1260_001_BartonNathaniel_Project5
 {
     internal class Program
     {
+        //make static class of these global attributes:
+        //public Dungeon PlayerDungeon = new Dungeon();
+        //public Dagger Dagger = new Dagger(<attributes here>);
+        //public Macuahuitl Macuahuitl = new Macuahuitl(<attributes here>);
+        //public Axe Axe = new Axe(<attributes here>);
+
         static void Main(string[] args)
         {
             //construct flow of menu navigation here!
             DisplayMainMenu();
 
+
+
+
             //prevents output console from instantly closing
             //Console.ReadLine();
         }
-        //Main menu or "Title Screen" menu
-        static void DisplayMainMenu()
+        //Main menu or "Title Screen" menu.
+        //Returns bool to indicate whether or not player wants to continue.
+        static bool DisplayMainMenu()
         {
             bool valid = false;
+            int playerChoice = 0;
 
             Console.Clear();
             Console.SetCursorPosition(0, 2);
@@ -39,7 +50,7 @@ namespace _1260_001_BartonNathaniel_Project5
                 Console.Write(" Your choice:\t");
                 try
                 {
-                    int playerChoice = int.Parse(Console.ReadLine());
+                    playerChoice = int.Parse(Console.ReadLine());
                     if(playerChoice >= 1 && playerChoice <= 4)
                     {
                         valid = true;
@@ -52,6 +63,22 @@ namespace _1260_001_BartonNathaniel_Project5
                 }
             } while (!valid);
 
+            switch (playerChoice)
+            {
+                case 1:
+                    //dungeon = new Dungeon(3, 4);
+                    return true;
+                case 2:
+                    //dungeon = new Dungeon(5, 7);
+                    return true;
+                case 3:
+                    //dungeon = new Dungeon(7, 10);
+                    return true;
+                case 4:
+                    return false;
+                default:
+                    return true;
+            }
         }
         //General in-game menu (non-combat actions)
         static void DisplayGameMenu()
@@ -74,7 +101,7 @@ namespace _1260_001_BartonNathaniel_Project5
                 try
                 {
                     int playerChoice = int.Parse(Console.ReadLine());
-                    if (playerChoice >= 1 && playerChoice <= 4)
+                    if (playerChoice >= 1 && playerChoice <= 5)
                     {
                         valid = true;
                     }
@@ -86,8 +113,9 @@ namespace _1260_001_BartonNathaniel_Project5
                 }
             } while (!valid);
         }
-        //Typical puase menu utilities (resume, exit to title, exit game)
-        static void DisplayPauseMenu()
+        //Typical puase menu utilities (resume, exit to title, exit game).
+        //Returns bool to indicate whether or not player wants to continue.
+        static bool DisplayPauseMenu()
         {
             bool valid = false;
 
@@ -105,7 +133,7 @@ namespace _1260_001_BartonNathaniel_Project5
                 try
                 {
                     int playerChoice = int.Parse(Console.ReadLine());
-                    if (playerChoice >= 1 && playerChoice <= 4)
+                    if (playerChoice >= 1 && playerChoice <= 3)
                     {
                         valid = true;
                     }
@@ -116,10 +144,15 @@ namespace _1260_001_BartonNathaniel_Project5
                     Console.WriteLine("[x] Enter a listed number");
                 }
             } while (!valid);
+
+            //temp return statement to avoid errors
+            return true;
         }
         //In-game combat menu
         static void DisplayCombatMenu()
         {
+            bool valid = false;
+
             //Console.SetCursorPosition(0, <vert pos depends on dungeon size>)
             Console.WriteLine(">>>-----------[x_x]------------|>");
             Console.WriteLine("  1>\tAttack!");

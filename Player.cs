@@ -9,18 +9,16 @@ namespace _1260_001_BartonNathaniel_Project5
     internal class Player : Entity
     {
         private double PerceptionChance;
-        private bool Armed = false;
-        private Weapon? Weapon;
+        private Weapon Weapon = new Weapon();
 
         public double GetPerceptionChance() { return PerceptionChance; }
 
         public void SetPerceptionChance(double perceptionChance) { PerceptionChance = perceptionChance; }
-        public void ObtainWeapon(Weapon weapon) { Weapon = new Weapon(weapon); Armed = true; }
+        public void ObtainWeapon(Weapon weapon) { Weapon = new Weapon(weapon); }
         public Player(int health, int strength, double critChance, double agility, double accuracy, double perceptionChance, Weapon weapon = null)
             : base(health, strength, critChance, agility, accuracy)
         {
             SetPerceptionChance(perceptionChance);
-            Armed = false;
         }
         public override void Attack(Entity target)
         {

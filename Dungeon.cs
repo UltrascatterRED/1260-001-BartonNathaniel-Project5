@@ -23,14 +23,14 @@ namespace _1260_001_BartonNathaniel_Project5
                     return i;
                 }
             }
-            throw new Exception("Player must be present in exactly one room");
+            throw new Exception("[x] Player must be present in exactly one room");
         }
         public int GetPlayerMapHeight()
         {
             int visitedRooms = 0;
             foreach(Room room in Rooms)
             {
-                if (room.GetVisited)
+                if (room.GetVisited())
                 {
                     visitedRooms++;
                 }
