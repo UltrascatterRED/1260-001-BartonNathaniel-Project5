@@ -8,20 +8,25 @@ namespace _1260_001_BartonNathaniel_Project5
 {
     internal class Entity
     {
+        protected string Name;
         protected int Health;
         protected int Strength;
         protected double CritChance;
         protected double Agility;
         protected double Accuracy;
+        protected bool IsDead = false;
 
         //getters
+        public string GetName() { return Name; }
         public int GetHealth() { return Health; }
         public int GetStrength() { return Strength;}
         public double GetCritChance() { return CritChance;}
         public double GetAgility() { return Agility;}
         public double GetAccuracy() { return Accuracy;}
+        public bool GetIsDead() { return IsDead; }
 
         //setters
+        public void SetName(string name) { Name = name; }
         public void SetHealth(int health) 
         { 
             if(health < 0) 
@@ -89,6 +94,7 @@ namespace _1260_001_BartonNathaniel_Project5
                 Accuracy = accuracy;
             }
         }
+        public void Die() { IsDead = true; }
 
         public Entity()
         {

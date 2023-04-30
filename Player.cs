@@ -30,9 +30,40 @@ namespace _1260_001_BartonNathaniel_Project5
         {
             SetPerceptionChance(perceptionChance);
         }
+        public void ObtainWeapon(Room containingRoom, Weapon weapon)
+        {
+            Weapon = weapon;
+            containingRoom.SetWeapon(new Weapon());
+            containingRoom.SetHasWeapon(false);
+        }
         public override void Attack(Entity target)
         {
-            //same as base, but applying weapon logic if armed
+            Random rand = new Random();
+            if (rand.Next(10000) < Accuracy * 10000)
+            {
+                if (rand.Next(10000) < Agility * 10000)
+                {
+                    if (rand.Next(10000) < CritChance * 10000)
+                    {
+                        target.TakeDamage((this.Strength + Weapon.GetDamage()) * 2);
+                        GlobalUtils.DisplayGameMessage("You strike the " + target.GetName() + "! It takes " + ((this.Strength + Weapon.GetDamage()) * 2) + " damage.");
+                    }
+                    else
+                    {
+                        target.TakeDamage(this.Strength + Weapon.GetDamage());
+                        GlobalUtils.DisplayGameMessage("You strike the " + target.GetName() + "! It takes " + (this.Strength + Weapon.GetDamage()) + " damage.");
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+
         }
     }
 }

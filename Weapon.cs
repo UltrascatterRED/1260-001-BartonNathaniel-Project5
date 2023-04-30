@@ -27,7 +27,7 @@ namespace _1260_001_BartonNathaniel_Project5
 
         public Weapon() 
         {
-            SetName("Fists");
+            SetName("");
             SetDescription("You are unarmed. Hopefully you've brushed up on hand-to-hand combat.");
             SetDamage(0);
             SetAccuracyMod(0);

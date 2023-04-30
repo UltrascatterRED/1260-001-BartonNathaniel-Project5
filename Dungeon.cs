@@ -14,6 +14,14 @@ namespace _1260_001_BartonNathaniel_Project5
 
         private Random rand = new Random();
 
+        public Room GetPlayerRoom()
+        {
+            foreach (Room room in Rooms)
+            {
+                if (room.GetPlayerPresent()) { return room; }
+            }
+            throw new Exception("[x] Player was not present in any room.");
+        }
         public int GetPlayerRoomIndex()
         {
             for(int i = 0; i < Rooms.Length; i++)
@@ -36,6 +44,10 @@ namespace _1260_001_BartonNathaniel_Project5
                 }
             }
             return (visitedRooms / Size[0] + 1) * 3;
+        }
+        public int GetFullMapHeight()
+        {
+            return Size[1] * 3;
         }
         public Dungeon()
         {
@@ -130,6 +142,14 @@ namespace _1260_001_BartonNathaniel_Project5
                 } while (receivingRoom.GetHasWeapon());
 
                 receivingRoom.SetHasWeapon(true);
+                if(rand.Next(10000) < 5000)
+                {
+                    receivingRoom.SetWeapon(new Weapon("sword", "A nice, sharp, conventional edged weapon. Polpular among adventurers.", 4, 0));
+                }
+                else
+                {
+                    receivingRoom.SetWeapon(new Weapon("stick", "A dimunitive branch, used as a weapon only in desperation.", 2, 0));
+                }
             }
         }
         public void MovePlayer(int directionIndex)
@@ -153,12 +173,12 @@ namespace _1260_001_BartonNathaniel_Project5
                         }
                         else
                         {
-                            Console.WriteLine("You cannot walk that way.");
+                            GlobalUtils.DisplayGameMessage("You cannot walk that way.");
                         }
                     }
                     catch
                     {
-                        Console.WriteLine("You cannot walk that way.");
+                        GlobalUtils.DisplayGameMessage("You cannot walk that way.");
                     }
                     break;
                 case 1:
@@ -173,12 +193,12 @@ namespace _1260_001_BartonNathaniel_Project5
                         }
                         else
                         {
-                            Console.WriteLine("You cannot walk that way.");
+                            GlobalUtils.DisplayGameMessage("You cannot walk that way.");
                         }
                     }
                     catch
                     {
-                        Console.WriteLine("You cannot walk that way.");
+                        GlobalUtils.DisplayGameMessage("You cannot walk that way.");
                     }
                     break;
                 case 2:
@@ -186,12 +206,20 @@ namespace _1260_001_BartonNathaniel_Project5
                     {
                         if (currentRoomIndex == Rooms.Length - 1)
                         {
-                            Console.SetCursorPosition(0, GlobalAttributes.PlayerDungeon.GetPlayerMapHeight() + 1);
-                            Console.WriteLine("*****************************************");
-                            Console.WriteLine("| Victory! You have exited the dungeon! |");
-                            Console.WriteLine("*****************************************");
-                            GlobalAttributes.PlayerInGame = false;
-                            GlobalAttributes.PlayerContinue = false;
+                            //Console.SetCursorPosition(0, GlobalAttributes.PlayerDungeon.GetPlayerMapHeight() + 1);
+                            //<debug>
+                            Console.SetCursorPosition(0, GlobalUtils.PlayerDungeon.GetFullMapHeight() + 1);
+                            //</debug>
+                            GlobalUtils.DisplayGameMessage
+                                (
+                                "*****************************************\n" +
+                                "| Victory! You have exited the dungeon! |\n" +
+                                "*****************************************"
+                                );
+                            int victoryMenuChoice = GlobalUtils.DisplayVictoryMenu();
+                            GlobalUtils.ExecuteGameOverMenu( victoryMenuChoice );
+                            GlobalUtils.PlayerInGame = false;
+                            GlobalUtils.PlayerContinue = false;
                         }
                         else if (currentRoom.HasEastExit())
                         {
@@ -200,12 +228,12 @@ namespace _1260_001_BartonNathaniel_Project5
                         }
                         else
                         {
-                            Console.WriteLine("You cannot walk that way.");
+                            GlobalUtils.DisplayGameMessage("You cannot walk that way.");
                         }
                     }
                     catch
                     {
-                        Console.WriteLine("You cannot walk that way.");
+                        GlobalUtils.DisplayGameMessage("You cannot walk that way.");
                     }
                     break;
                 case 3:
@@ -218,7 +246,7 @@ namespace _1260_001_BartonNathaniel_Project5
                     }
                     catch
                     {
-                        Console.WriteLine("You cannot walk that way.");
+                        GlobalUtils.DisplayGameMessage("You cannot walk that way.");
                     }
                     break;
             }
