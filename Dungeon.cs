@@ -126,7 +126,7 @@ namespace _1260_001_BartonNathaniel_Project5
                 Room receivingRoom;
                 do
                 {
-                    receivingRoom = Rooms[(rand.Next(10000 * Rooms.Length) / 10000) - 1];
+                    receivingRoom = Rooms[(rand.Next(10000, 10000 * Rooms.Length + 1) / 10000) - 1];
                 } while (receivingRoom.GetHasWeapon());
 
                 receivingRoom.SetHasWeapon(true);
@@ -186,9 +186,12 @@ namespace _1260_001_BartonNathaniel_Project5
                     {
                         if (currentRoomIndex == Rooms.Length - 1)
                         {
+                            Console.SetCursorPosition(0, GlobalAttributes.PlayerDungeon.GetPlayerMapHeight() + 1);
                             Console.WriteLine("*****************************************");
                             Console.WriteLine("| Victory! You have exited the dungeon! |");
                             Console.WriteLine("*****************************************");
+                            GlobalAttributes.PlayerInGame = false;
+                            GlobalAttributes.PlayerContinue = false;
                         }
                         else if (currentRoom.HasEastExit())
                         {
@@ -222,6 +225,7 @@ namespace _1260_001_BartonNathaniel_Project5
         }
         public void DisplayPlayerMap()
         {
+            Console.Clear();
             foreach(Room room in Rooms) 
             {
                 //only displays rooms the player has visited
@@ -233,6 +237,7 @@ namespace _1260_001_BartonNathaniel_Project5
         }
         public void DisplayFullMap()
         {
+            Console.Clear();
             foreach (Room room in Rooms)
             {
                 room.DisplayRoom();

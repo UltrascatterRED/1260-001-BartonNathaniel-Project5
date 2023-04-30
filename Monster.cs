@@ -19,9 +19,9 @@ namespace _1260_001_BartonNathaniel_Project5
             SetHealth(20);
             SetStrength(4);
             SetCritChance(0.05);
-            SetAgility(0.08);
+            SetAgility(0.10);
             SetAccuracy(0.90);
-            SetRageChance(.03);
+            SetRageChance(0.03);
         }
     }
 }
